@@ -4,10 +4,13 @@ let input = document.querySelector('input');
 let allMovies = JSON.parse(localStorage.getItem('movies')) || [];
 
 function elm(type, attr = {}, ...children) {
-  let element = document.createElement('type');
+  let element = document.createElement(type);
   for (let key in attr) {
     if (key.startsWith('data-')) {
       element.setAttribute(key, attr[key]);
+    } else if (key.startsWith('on')) {
+      let eventType = key.replace('on', '').toLowerCase();
+      element.addEventListener(eventType, attr[key]);
     } else {
       element[key] = attr[key];
     }
@@ -51,15 +54,14 @@ function createUI(data, rootElm) {
   data.forEach((movie, index) => {
     let li = elm(
       'li',
-      {},
-      elm('span', {}, movie.name),
+      null,
+      elm('span', null, movie.name),
       elm(
         'button',
-        { 'data-id': index },
+        { 'data-id': index, onClick: handleToggle },
         movie.isWatched ? 'To Watch' : 'Watch'
       )
     );
-    btn.addEventListener('click', handleToggle);
     rootElm.append(li);
   });
 }
