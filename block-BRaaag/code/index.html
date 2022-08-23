@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Movie App</title>
+  </head>
+  <body class="container">
+    <div class="box-1 center">
+      <h1>Movie Watch List</h1>
+      <input type="text" id="movie-name" placeholder="Enter the movie name" />
+      <ul class="watch-list"></ul>
+    </div>
+    <script src="script.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      let rootElm = document.querySelector('ul');
+      let input = document.querySelector('input');
+
+      let allMovies = JSON.parse(localStorage.getItem('movies')) || [];
+
+      let elm = React.createElement;
+
+      function handleInput(event) {
+        event.preventDefault();
+        if (event.key === 'Enter') {
+          let value = event.target.value;
+          let movie = {
+            name: value,
+            isWatched: false,
+          };
+          allMovies.push(movie);
+          createUI(allMovies, rootElm);
+          event.target.value = '';
+        }
+        localStorage.setItem('movies', JSON.stringify(allMovies));
+      }
+
+      function handleToggle(event) {
+        let id = event.target.dataset.id;
+        allMovies[id].isWatched = !allMovies[id].isWatched;
+        localStorage.setItem('movies', JSON.stringify(allMovies));
+        createUI(allMovies, rootElm);
+      }
+
+      function createUI(data, rootElm) {
+        let ui = data.map((movie, index) => {
+          return (
+            <li>
+              <span>{movie.name}</span>
+              <button onClick={handleToggle} data-id={index}>
+                {movie.isWatched ? 'To Watch' : 'Watch'}
+              </button>
+            </li>
+          );
+        });
+        ReactDOM.render(ui, rootElm);
+      }
+
+      createUI(allMovies, rootElm);
+
+      input.addEventListener('keyup', handleInput);
+    </script>
+  </body>
+</html>
