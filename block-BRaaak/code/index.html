@@ -16,8 +16,13 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="container">
+    <header class="center">
+      <h1>All Articles</h1>
+      <p>Collection of best articles on startup</p>
+    </header>
+
+    <div id="root" class="flex"></div>
     <script type="text/babel">
       let articles = [
         {
@@ -69,42 +74,42 @@
         'Nov',
         'Dec',
       ];
-      let Article = (props) => {
+      function Article(props) {
         let date = props.date.getDate();
         let month = monthsName[props.date.getMonth()];
         return (
           <>
-            <img src={article.imageURL} alt="Desert" />
-            <div className="circle">
-              <strong className="date">{date}</strong>
-              <strong>{month}</strong>
-            </div>
-            <div className="photos">{props.category}</div>
-            <div className="box">
-              <h1>{article.title}</h1>
-              <h2>{article.subTitle}</h2>
-              <p>{article.description}</p>
-              <span>{article.comments + ' comments'}</span>
+            <div className="card flex-30">
+              <img src={props.imageURL} alt="Desert" />
+              <div className="circle">
+                <strong className="date">{date}</strong>
+                <strong>{month}</strong>
+              </div>
+              <div className="category">{props.category}</div>
+              <div className="box">
+                <h2>{props.title}</h2>
+                <h3>{props.subTitle}</h3>
+                <p>{props.description}</p>
+                <span>{props.comments + ' comments'}</span>
+              </div>
             </div>
           </>
         );
-      };
-      let Articles = () => {
-        articles.map((article) => {
-          return (
-            <Article
-              title={article.title}
-              date={article.date}
-              comments={article.comments}
-              subTitle={article.subTitle}
-              description={article.description}
-              category={article.category}
-              imageURL={article.imageURL}
-            ></Article>
-          );
-        });
-      };
-      ReactDOM.render(Articles, document.getElementById('root'));
+      }
+      function Articles() {
+        return articles.map((article) => (
+          <Article
+            title={article.title}
+            date={article.date}
+            comments={article.comments}
+            subTitle={article.subTitle}
+            description={article.description}
+            category={article.category}
+            imageURL={article.imageURL}
+          />
+        ));
+      }
+      ReactDOM.render(<Articles />, document.getElementById('root'));
     </script>
   </body>
 </html>
