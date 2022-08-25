@@ -1,0 +1,207 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Custom Styling */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: rgb(223, 220, 220);
+  line-height: 1.5;
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.center {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem 0;
+}
+h2 {
+  font-size: 1.5rem;
+  color: orangered;
+}
+p {
+  font-size: 1.2rem;
+  margin: 2rem 0;
+  line-height: 2;
+  color: grey;
+}
+img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+}
+#root {
+  margin-top: 5rem;
+  background-color: white;
+  box-shadow: 0px 0px 10px 4px #b8b6b6;
+  position: relative;
+}
+.box {
+  padding: 2rem 3rem;
+}
+
+span {
+  color: grey;
+  margin-right: 3rem;
+}
+.circle {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: orangered;
+  color: white;
+  position: absolute;
+  right: 4rem;
+  top: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.date {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+strong {
+  display: block;
+}
+.photos {
+  position: absolute;
+  left: 0;
+  top: 12.5rem;
+  background-color: orangered;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
