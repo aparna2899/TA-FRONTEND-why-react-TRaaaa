@@ -134,24 +134,39 @@ body {
   line-height: 1.5;
 }
 .container {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 1300px;
+  margin: 2rem auto;
 }
 .center {
   text-align: center;
 }
-
+.flex {
+  display: flex;
+}
+.flex-30 {
+  flex: 0 1 30%;
+}
+header p {
+  font-size: 1.3rem;
+  color: black;
+  margin: 1rem 0;
+}
 h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 1rem 0;
+  font-size: 2.4rem;
+  font-weight: bolder;
 }
 h2 {
   font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem 0;
+}
+h3 {
+  font-size: 1.2rem;
   color: orangered;
 }
+
 p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 2rem 0;
   line-height: 2;
   color: grey;
@@ -163,9 +178,12 @@ img {
 }
 #root {
   margin-top: 5rem;
-  background-color: white;
-  box-shadow: 0px 0px 10px 4px #b8b6b6;
+}
+.card {
   position: relative;
+  margin: 0 auto;
+  box-shadow: 0px 0px 10px 4px #b8b6b6;
+  background-color: white;
 }
 .box {
   padding: 2rem 3rem;
@@ -176,27 +194,27 @@ span {
   margin-right: 3rem;
 }
 .circle {
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   background-color: orangered;
   color: white;
   position: absolute;
-  right: 4rem;
-  top: 3rem;
+  right: 2rem;
+  top: 1rem;
   text-align: center;
   text-transform: uppercase;
   line-height: 1.2;
 }
 .date {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-top: 0.5rem;
 }
 strong {
   display: block;
 }
-.photos {
+.category {
   position: absolute;
   left: 0;
   top: 12.5rem;
@@ -204,4 +222,5 @@ strong {
   color: white;
   font-weight: bold;
   padding: 0.5rem 1rem;
+  text-transform: uppercase;
 }
